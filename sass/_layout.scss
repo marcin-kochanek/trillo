@@ -41,18 +41,21 @@
   background-color: var(--color-grey-light-1);
   padding: 4.5rem;
   border-bottom: var(--line);
+  font-size: 1.4rem;
 
   .hotel-description {
     flex: 0 0 60%;
     margin-right: 4.5rem;
     background-color: #fff;
-    font-size: 1.4rem;
     padding: 3rem;
     box-shadow: var(--shadow-light);
   }
 
   .hotel-reviews {
     flex: 1;
-    background-color: yellowgreen;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
