@@ -22,6 +22,16 @@
       -ms-flex-pack: center;
           justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -34,6 +44,10 @@
     -webkit-transition: all .3s;
     transition: all .3s;
     margin-right: -3.25rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-right: 0;
+    }
 
     &:focus {
       width: 100%;
@@ -63,6 +77,12 @@
     border: none;
     background-color: var(--color-grey-light-2);
 
+    @media only screen and (max-width: $bp-smallest) {
+      -webkit-transform: translateY(2px);
+      transform: translateY(2px);
+      padding-right: 1rem;
+    }
+
     &:focus {
       outline: none;
     }
@@ -84,7 +104,6 @@
 //// USER NAVIGATION ////
 .user-nav {
   align-self: stretch;
-
   display: flex;
   align-items: center;
 
@@ -141,11 +160,28 @@
   list-style: none;
   margin-top: 3rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    margin: 0;
+    display: flex;
+  }
+
+  @media only screen and (max-width: $bp-mini) {
+    font-size: 1.2rem;
+  }
+
   &__item {
     position: relative;
 
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+    }
+
     &:not(:last-child) {
       margin-bottom: .5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
     }
   }
 
@@ -185,6 +221,16 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__icon {
@@ -193,6 +239,12 @@
     color: var(--color-grey-light-1);
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin: .3rem;
+    }
   }
 }
 
@@ -203,6 +255,10 @@
   padding: 2rem;
   color: var(--color-grey-light-4);
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 //////////////////
@@ -217,12 +273,18 @@
 }
 
 //////////////////
-//// GALLERY ////
+//// HOTEL OVERVIEW ////
 .overview {
   display: flex;
   align-items: center;
   border-bottom: var(--line);
   background-color: #fff;
+
+  @media only screen and (max-width: $bp-mini) {
+    flex-wrap: wrap;
+    padding: 0 3rem;
+    justify-content: space-between;
+  }
 
   &__heading {
     font-size: 2.25rem;
@@ -230,12 +292,27 @@
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
+
+    @media only screen and (max-width: $bp-mini) {
+      flex: 1 0 100%;
+      text-align: center;
+      font-size: 3rem;
+    }
   }
 
   &__stars {
     //flex: 1; złe rozwiązanie ze względu na to, że element będzie zajmował całą dostępną szerokość
     margin-right: auto;
     display: flex;
+
+    @media only screen and (max-width: $bp-mini) {
+      margin: 0;
+    }
   }
 
   &__icon {
@@ -264,17 +341,28 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.25rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
 
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: .8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: .6rem;
+    }
   }
 
 }
@@ -296,8 +384,18 @@
   display: flex;
   flex-wrap: wrap;
 
+  @media only screen and (max-width: $bp-mini) {
+    flex-direction: column;
+    padding: 1rem 0;
+    margin: 1rem 0;
+  }
+
   &__item {
     flex: 0 0 50%;
+
+    @media only screen and (max-width: $bp-mini) {
+      margin-bottom: 1rem;
+    }
 
     &:nth-child(-n+6) {
       margin-bottom: 1rem;
@@ -338,6 +436,10 @@
     margin-right: auto;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -360,6 +462,12 @@
   margin-bottom: 3rem;
   position: relative;
   overflow: hidden;
+  width: 100%;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
 
   &::before {
     content: "\201C";
@@ -425,10 +533,22 @@
   -webkit-perspective: 1000; //
   -webkit-backface-visibility: hidden; 
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 2.5rem 2rem;
+  }
+
   &__heading {
     font-size: 2.2rem;
     margin-bottom: 2.5rem;
     font-weight: 200;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1.8rem;
+    }
   }
 }
 
