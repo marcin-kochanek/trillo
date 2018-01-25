@@ -100,6 +100,10 @@
     flex-direction: column;
     align-items: center;
 
+    @media only screen and (max-width: $bp-mini) {
+      margin-bottom: 1rem;
+    }
+
     &__heading {
       display: none;
       margin-bottom: 2rem;

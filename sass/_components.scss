@@ -319,6 +319,11 @@
     height: 1.75rem;
     width: 1.75rem;
     fill: var(--color-primary);
+
+    @media only screen and (max-width: $bp-small) {
+      height: 1.1rem;
+      width: 1.1rem;
+    }
   }
 
   &__icon--location-pin {
@@ -328,6 +333,10 @@
   &__location {
     font-size: 1.2rem;
     display: flex;
+
+    @media only screen and (max-width: $bp-mini) {
+      font-size: 1rem;
+    }
   }
 
   &__rating {
@@ -345,6 +354,7 @@
     @media only screen and (max-width: $bp-small) {
       padding: 0 1.25rem;
     }
+
   }
 
   &__rating-average {
@@ -352,7 +362,11 @@
     font-weight: 300;
 
     @media only screen and (max-width: $bp-small) {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+    }
+
+    @media only screen and (max-width: $bp-mini) {
+      font-size: 1.3rem;
     }
   }
 
@@ -362,6 +376,10 @@
 
     @media only screen and (max-width: $bp-small) {
       font-size: .6rem;
+    }
+
+    @media only screen and (max-width: $bp-mini) {
+      font-size: .5rem;
     }
   }
 
@@ -409,17 +427,20 @@
       margin-right: .5rem;
 
       // Pierwsze rozwiązanie (głównie starsze przeglądarki)
-      //background-image: url(../img/chevron-thin-right.svg);
-      //background-size: cover;
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover;
 
-      // Drugie rozwiązanie to implementacja 8 SVG icons w strukturze HTML
+      // Drugie rozwiązanie to implementacja aż ośmiu SVG icons w strukturze HTML
       
       // Trzecie rozwiązanie to zastosowanie CSS'owych masek
-      background-color: var(--color-primary);
-      mask-image: url(../img/chevron-thin-right.svg);
-      mask-size: cover;
-      -webkit-mask-image: url(../img/chevron-thin-right.svg);
-      -webkit-mask-size: cover;
+      @supports ((mask-image:url()) or (-webkit-mask-image:url())) {
+        background-color: var(--color-primary);
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        background-image: none;
+      }
     }
   }
 }
